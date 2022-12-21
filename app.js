@@ -42,7 +42,7 @@ app.post('/',function(req,res){
     req.session.username=u.username;
     req.session.password=u.password;
     req.session.readinglist=u.readinglist;
-    console.log(req.session.readinglist);
+    //console.log(req.session.readinglist);
     res.render('home');}
     else 
     return res.send({
@@ -57,36 +57,43 @@ app.post('/',function(req,res){
 });
 
 app.get('/dune', function(req,res){
+  if(req.session.username)
   res.render('dune')
 
 });
 
 app.get('/fiction', function(req,res){
+ if(req.session.username)
   res.render('fiction')
 
 });
 
 app.get('/flies', function(req,res){
+ if(req.session.username)
   res.render('flies')
 
 });
 
 app.get('/grapes', function(req,res){
+ if(req.session.username)
   res.render('grapes')
 
 });
 
 app.get('/home', function(req,res){
+ if(req.session.username)
   res.render('home')
 
 });
 
 app.get('/index', function(req,res){
+ if(req.session.username)
   res.render('index')
 
 });
 
 app.get('/leaves', function(req,res){
+ if(req.session.username)
   res.render('leaves')
 
 });
@@ -94,16 +101,19 @@ app.get('/leaves', function(req,res){
 
 
 app.get('/mockingbird', function(req,res){
+ if(req.session.username)
   res.render('mockingbird')
 
 });
 
 app.get('/novel', function(req,res){
+if(req.session.username)
   res.render('novel')
 
 });
 
 app.get('/poetry', function(req,res){
+  if(req.session.username)
   res.render('poetry')
 
 });
@@ -111,6 +121,7 @@ app.get('/poetry', function(req,res){
 app.get('/readlist', function(req,res){
  // req.session.readinglist=req.session.readinglist.concat(["Dunes"]);
   //console.log(req.session.readinglist);
+ if(req.session.username)
   res.render('readlist',{readinglist: req.session.readinglist})
   /*for(let i = 0;i<x.length;x++){
     if(req.session.user.)
@@ -257,6 +268,7 @@ try {
 
 
 app.get('/searchresults', function(req,res){
+  if(req.session.username)
   res.render('searchresults')
 
 });
@@ -277,10 +289,11 @@ for(let z=0;z<books.length;z++){
 }
 }
 res.render('searchresults',{matches,result});
-console.log(result);
+//console.log(result);
   });
 
 app.get('/sun', function(req,res){
+  if(req.session.username)
   res.render('sun')
 
 });
